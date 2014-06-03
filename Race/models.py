@@ -26,8 +26,20 @@ class Mage(models.Model):
 
 class Archer(models.Model):
    name = models.CharField(max_length = 150)
-   badassery = models.DecimalField(max_digits = 10, decimal_places = 7,default = 6)
+   badassery = models.DecimalField(max_digits = 10, decimal_places = 7,
+         default = 6)
    def __unicode__(self):
       return self.name
 
-
+class Barbarian(models.Model):
+   WEAPON = (('ax', 'Axe'),
+         ('swd', 'Sword'),
+         ('mc', 'Mace'),
+         ('sp', 'Spear'),
+         )
+   name = models.CharField(max_length = 150)
+   badassery = models.DecimalField(max_digits = 10, decimal_places = 7, 
+         default = 7)
+   weapon = models.CharField(max_length = 255, choices = WEAPON, default = 'ax')
+   def __unicode__(self):
+      return self.name

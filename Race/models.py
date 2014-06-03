@@ -13,4 +13,11 @@ class Knight(models.Model):
    def __unicode__(self):
       return self.name
 
-
+class Mage(models.Model):
+   TYPE = (('sorc', 'Sorcerer'),
+         ('druid', 'Druid'),
+         ('summ', 'Summoner'),
+         ('nec', 'Necromancer'),
+         )
+   name = models.CharField(max_length = 150)
+   sword = models.CharField(max_length = 255, choices = TYPE, default = 'sorc')

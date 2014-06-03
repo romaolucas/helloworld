@@ -21,3 +21,13 @@ class Mage(models.Model):
          )
    name = models.CharField(max_length = 150)
    sword = models.CharField(max_length = 255, choices = TYPE, default = 'sorc')
+   def __unicode__(self):
+      return self.name
+
+class Archer(models.Model):
+   name = models.CharField(max_length = 150)
+   badassery = models.DecimalField(max_digits = 10, decimal_places = 7,default = 6)
+   def __unicode__(self):
+      return self.name
+
+
